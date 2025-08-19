@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorry ❤️</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(to bottom, #aee1f9, #ffffff);
+      text-align: center;
+      overflow: hidden;
+    }
+    .penguin {
+      font-size: 80px;
+      animation: bounce 1.5s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-25px); }
+    }
+    h1, h2 {
+      color: #333;
+      margin: 10px;
+    }
+    .buttons {
+      margin-top: 20px;
+    }
+    button {
+      font-size: 1.2em;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .yes {
+      background-color: #4CAF50;
+      color: white;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    .no {
+      background-color: #f44336;
+      color: white;
+      position: relative;
+    }
+    #message {
+      font-size: 1.3em;
+      color: #444;
+      margin-top: 20px;
+      animation: fadeIn 1s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="penguin">🐧</div>
+  <h1 id="question">Hi love, it’s me... your penguin buddy 🐧</h1>
+  <h2>Can I ask you something?</h2>
+  <div class="buttons">
+    <button class="yes" onclick="sayYes()">Yes</button>
+    <button class="no" onmouseover="escapeNo(this)">No</button>
+  </div>
+  <p id="message"></p>
+
+  <script>
+    const questions = [
+      "Will you forgive me? ❤️",
+      "Do you still love me? 🥺",
+      "Can I get a big hug? 🤗",
+      "Am I your favorite penguin? 🐧",
+      "Will you be mine forever? 💍"
+    ];
+
+    let currentQuestion = 0;
+
+    function sayYes() {
+      if (currentQuestion < questions.length) {
+        document.getElementById("question").innerText = questions[currentQuestion];
+        currentQuestion++;
+      } else {
+        document.getElementById("message").innerText = "Yay! 🐧❤️ You said YES to everything! I’m the happiest penguin alive!";
+      }
+    }
+
+    function escapeNo(button) {
+      const x = Math.random() * 400 - 200;
+      const y = Math.random() * 400 - 200;
+      button.style.transform = `translate(${x}px, ${y}px)`;
+    }
+  </script>
+</body>
+</html>
